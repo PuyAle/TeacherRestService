@@ -34,6 +34,13 @@ public class DaoRest {
         return tdao.getAllTeacher();
     }
 
+    @GET
+    @Path("{id}")
+    @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
+    public Teacher getTeacher(@PathParam("id") Integer id) {
+        return tdao.findById(id);
+    }
+
     @PUT
     @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
     public void editTeacher(Teacher t) {
@@ -43,7 +50,7 @@ public class DaoRest {
     @DELETE
     @Path("{id}")
     @Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
-    public void removeTeacher(@PathParam("id") Long id) {
+    public void removeTeacher(@PathParam("id") Integer id) {
         tdao.removeTeacher(id);
     }
 }

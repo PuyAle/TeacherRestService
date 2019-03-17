@@ -23,14 +23,14 @@ public class TeacherDAO implements TeacherDAOInterface {
     }
 
     @Override
-    public void removeTeacher(Long id) {
+    public void removeTeacher(int id) {
 
         em.remove(em.find(Teacher.class, id));
 
     }
 
     @Override
-    public Teacher findById(Long id) {
+    public Teacher findById(int id) {
         return em.find(Teacher.class, id);
     }
 
